@@ -1,12 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Weather App</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
 </head>
+
 <body>
+  <div class="hero">
+    <div class="hero-body">
+      <h1 class="title is-size-1 has-text-centered">Odin's Weather App</h1>
+      <div class="columns">
+        <div class="column is-half is-offset-one-quarter">
+          <div class="level-item">
+            <div class="field has-addons">
+              <p class="control">
+                <input id="city-search-input" required class="input" type="text" placeholder="City Name">
+              </p>
+              <p class="control">
+                <button id="city-search-button" class="button">
+                  Search
+                </button>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="columns">
+        <div class="column is-half is-offset-one-quarter">
+          <div class="box">
+            <div id="loader" class="container is-size-1 has-text-centered is-hidden">
+              <i class="fa fa-spinner fa-pulse"></i>
+            </div>
+            <div id="result" class="is-size-3 has-text-centered has-text-grey-dark">
+              <h2>Search by city name and get the temperature</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <script src="main.js"></script>
 </body>
+
 </html>
