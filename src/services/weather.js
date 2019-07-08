@@ -1,6 +1,6 @@
 'use strict'
 
-const BASE_URL = 'http://api.openweathermap.org/data/2.5/weather'
+const BASE_URL = 'https://api.openweathermap.org/data/2.5/weather'
 // The best practice is to get the APP_ID form a non tracked file ()
 const APP_ID = '1e1a64ed3720bb82545e1d5db123772b'
 
