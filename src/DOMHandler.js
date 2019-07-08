@@ -4,7 +4,6 @@ import { getTemperatureByCityName } from './services/weather'
 const DOMElements = {}
 
 function init() {
-  console.log('init')
   DOMElements.$input = document.getElementById('city-search-input')
   DOMElements.$button = document.getElementById('city-search-button')
   DOMElements.$loader = document.getElementById('loader')
