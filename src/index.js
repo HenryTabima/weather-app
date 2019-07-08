@@ -1,6 +1,7 @@
+'use strict'
 import './main.scss'
+import DOMHandler from './DOMHandler'
 
-import { getTemperatureByCityName } from './services/weather'
-
-getTemperatureByCityName('Cali')
-  .then(res => console.log(res))
+document.addEventListener('DOMContentLoaded', () => {
+  DOMHandler.init()
+})
