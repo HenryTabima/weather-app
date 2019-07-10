@@ -8,12 +8,25 @@ function init() {
   DOMElements.$button = document.getElementById('city-search-button')
   DOMElements.$loader = document.getElementById('loader')
   DOMElements.$result = document.getElementById('result')
+  DOMElements.$radios = document.getElementsByName('units')
 
+  DOMElements.$radios.forEach(radio =>
+    radio.addEventListener('change', handleRadioChange)
+  )
   DOMElements.$button.addEventListener('click', fetchTemperature)
   DOMElements.$input.addEventListener('keypress', (e) => {
     const key = e.which || e.keyCode
     const ENTER_KEY_CODE = 13
     if (key === ENTER_KEY_CODE) fetchTemperature()
+  })
+}
+
+function handleRadioChange() {
+  const { $radios } = DOMElements
+  $radios.forEach(unitRadio => {
+    const el = document.getElementById(unitRadio.value)
+    if (!el) return
+    el.className = unitRadio.checked ? '' : 'is-hidden'
   })
 }
 
@@ -35,8 +48,11 @@ function displayError(msg) {
 }
 
 function displayResult(temp) {
-  const { $result } = DOMElements
-  $result.innerHTML = `<div> Celcius: ${temp.c}° </div><div> Fahrenheit: ${temp.f}°</div>`
+  const { $result, $radios } = DOMElements
+  $result.innerHTML = `
+    <div id="celcious" class="${$radios[0].checked ? '' : 'is-hidden'}"> Celcius: ${temp.c}° </div>
+    <div id="fahrenheit" class="${$radios[1].checked ? '' : 'is-hidden'}"> Fahrenheit: ${temp.f}°</div>
+  `
 }
 
 function startLoading() {
